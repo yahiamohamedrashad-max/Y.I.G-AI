@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080a12"><title>Y.I.G AI — Intelligent Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-logo">Y<span>.</span>I<span>.</span>G</div><div><b>Y.I.G AI</b><small>INTELLIGENT WORKSPACE</small></div></div>
+    <button class="new-chat" id="newChat">＋　محادثة جديدة</button>
+    <div class="nav-label">القائمة الرئيسية</div>
+    <button class="nav-item selected" data-view="chat">◈　المساعد الذكي</button>
+    <button class="nav-item" data-view="images">✧　إنشاء الصور</button>
+    <button class="nav-item" data-view="files">▤　ملفاتي</button>
+    <button class="nav-item" data-view="studio">〈/〉　استوديو الأكواد</button>
+    <button class="nav-item" data-view="admin" id="adminNav" hidden>♙　لوحة الإدارة</button>
+    <div class="nav-label">المحادثات السابقة</div>
+    <div class="history" id="historyList"><span class="muted">سجّل دخولك لعرض محادثاتك</span></div>
+    <div class="sidebar-bottom">
+      <div class="user-card" id="userCard">
+        <div class="avatar" id="userAvatar">Y</div><div class="user-info"><b id="userName">ضيف</b><small id="userEmail">سجّل الدخول للبدء</small></div>
+        <button class="more" id="signOut" title="تسجيل الخروج" hidden>↪</button>
+      </div>
+      <button class="google-btn" id="signIn"><span class="google-g">G</span> تسجيل الدخول بحساب Google</button>
+      <div class="version">Y.I.G AI FREE <span>v3.0</span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu">☰</button>
+      <div class="top-brand"><span class="live-dot"></span><b>Y.I.G AI</b><span class="model-label">AI WORKSPACE</span></div>
+      <div class="top-actions"><span id="cloudStatus" class="cloud-status">● غير متصل</span><button id="settingsBtn" class="icon-btn" title="الإعدادات">⚙</button></div>
+    </header>
+
+    <section class="view active" id="chatView">
+      <div class="chat-scroll" id="chatScroll">
+        <div class="welcome" id="welcome">
+          <div class="hero-orb"><span>Y</span><i></i></div>
+          <div class="overline">YOUR INTELLIGENT GUIDE</div>
+          <h1>فكّر بشكل أكبر مع <em>Y.I.G AI</em></h1>
+          <p>مساعد مجاني يعمل على جهازك للكتابة والشرح والبرمجة وقراءة الملفات النصية. أول تشغيل يحتاج تنزيل نموذج الذكاء الاصطناعي.</p>
+          <div class="quick-grid">
+            <button class="quick" data-prompt="اشرح لي موضوعاً معقداً بطريقة بسيطة وأمثلة"><span>◉</span><b>اشرح أي موضوع</b><small>تعلم وفهم أسرع</small></button>
+            <button class="quick" data-prompt="ساعدني في كتابة كود احترافي واشرحه خطوة بخطوة"><span>〈/〉</span><b>برمجة وكتابة كود</b><small>حلول وأفكار تقنية</small></button>
+            <button class="quick" data-prompt="اشرح لي ما تعرفه عن موضوع الذكاء الاصطناعي، واذكر إن كانت معلوماتك قديمة"><span>⌕</span><b>بحث على الإنترنت</b><small>معلومات ومصادر</small></button>
+            <button class="quick" data-prompt="حلل الملف المرفق واستخرج أهم النقاط"><span>▤</span><b>حلل ملف</b><small>PDF وصور ومستندات نصية</small></button>
+          </div>
+        </div>
+        <div id="messages" class="messages"></div>
+      </div>
+      <div class="composer-wrap">
+        <div class="attachments" id="attachments"></div>
+        <form id="chatForm" class="composer">
+          <label class="attach-btn" for="fileInput" title="إرفاق ملفات">＋</label>
+          <input type="file" id="fileInput" hidden multiple accept="image/*,.pdf,.txt,.md,.csv,.json,.html,.css,.js,.py">
+          <textarea id="messageInput" rows="1" placeholder="اسأل Y.I.G AI أي حاجة..."></textarea>
+          <button type="button" class="tool-btn" id="voiceInput" title="إملاء صوتي">🎙</button>
+          <button type="submit" class="send-btn" id="sendButton" title="إرسال">↑</button>
+        </form>
+        <div class="composer-tools">
+          <label class="toggle"><input type="checkbox" id="webToggle"><span></span> بحث الويب (غير متاح محلياً)</label>
+          <span class="hint">المعالجة على جهازك — لا توجد رسوم API</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="view tool-view" id="imagesView">
+      <div class="tool-panel">
+        <div class="tool-icon">✧</div><div class="overline">CREATIVE STUDIO</div>
+        <h1>حوّل خيالك إلى <em>صورة</em></h1>
+        <p>إنشاء الصور غير مفعّل في النسخة المجانية المحلية؛ لأنه يحتاج موارد توليد صور متخصصة.</p>
+        <textarea id="imagePrompt" class="image-prompt" placeholder="مثال: مدينة مستقبلية بإضاءة نيون زرقاء وبنفسجية، أسلوب سينمائي..."></textarea>
+        <button id="generateImage" class="primary-btn">معرفة حدود النسخة المجانية</button>
+        <div id="imageResult" class="image-result"></div>
+      </div>
+    </section>
+
+    <section class="view tool-view" id="studioView">
+      <div class="studio-panel">
+        <div class="overline">BUILD & PREVIEW</div><h1>استوديو <em>الأكواد</em></h1>
+        <p>اكتب HTML وCSS وJavaScript وشغّل معاينة محلية داخل المتصفح. الكود لا يعمل على السيرفر.</p>
+        <div class="code-grid">
+          <label>HTML<textarea id="htmlCode" class="code-editor" spellcheck="false"><main class="card"><h1>Hello, Y.I.G!</h1><p>My first web app.</p><button onclick="document.querySelector('p').textContent='It works!'">Click me</button></main></textarea></label>
+          <label>CSS<textarea id="cssCode" class="code-editor" spellcheck="false">body{font-family:Arial;background:#0b1020;color:#fff;display:grid;place-items:center;min-height:90vh}.card{text-align:center;padding:40px;border:1px solid #50dfff;border-radius:20px;box-shadow:0 0 30px #50dfff33}button{padding:10px 18px;border:0;border-radius:9px;background:#5ce5ff;cursor:pointer}</textarea></label>
+          <label>JavaScript<textarea id="jsCode" class="code-editor" spellcheck="false">console.log('Hello from Y.I.G AI');</textarea></label>
+        </div>
+        <div class="studio-actions"><button class="primary-btn" id="runCode">▶　تشغيل المعاينة</button><button class="secondary-btn" id="downloadCode">↓　تحميل HTML</button></div>
+        <iframe id="codePreview" title="معاينة الكود" sandbox="allow-scripts" class="preview-frame"></iframe>
+      </div>
+    </section>
+
+    <section class="view tool-view" id="adminView">
+      <div class="tool-panel admin-panel"><div class="overline">ADMIN CONSOLE</div><h1>لوحة <em>الإدارة</em></h1><p>إحصائيات الحسابات والاستخدام. الوصول للمسؤولين فقط.</p><button class="primary-btn" id="loadAdmin">تحديث الإحصائيات</button><div id="adminStats" class="admin-stats"></div></div>
+    </section>
+
+    <section class="view tool-view" id="filesView">
+      <div class="tool-panel">
+        <div class="tool-icon">▤</div><div class="overline">YOUR LIBRARY</div>
+        <h1>مساحة <em>ملفاتك</em></h1>
+        <p>الملفات النصية تُقرأ على جهازك وقت المحادثة فقط، ولا يتم رفعها أو تخزينها سحابياً. تسجيل Google اختياري لحفظ سجل المحادثات ضمن حدود Firebase المجانية.</p>
+        <div id="fileLibrary" class="file-library"><span class="muted">سجّل الدخول لعرض ملفاتك.</span></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="settingsModal">
+  <div class="modal">
+    <button class="modal-close" id="closeSettings">×</button>
+    <div class="overline">PREFERENCES</div><h2>الإعدادات</h2>
+    <div id="settingsUser" class="settings-user">سجّل الدخول لإدارة حسابك.</div>
+    <div class="setting-row"><span>المظهر</span><span class="setting-value">داكن نيون</span></div>
+    <div class="setting-row"><span>حفظ المحادثات</span><span class="setting-value">سحابي عبر Firebase</span></div>
+    <p class="modal-note">مفتاح OpenAI محفوظ على السيرفر ولا يظهر في المتصفح. يمكنك تسجيل الخروج من الشريط الجانبي.</p>
+  </div>
+</div>
+<div id="toast" class="toast"></div>
+<script type="module" src="/app.js"></script>
+</body></html>
